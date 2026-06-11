@@ -235,7 +235,6 @@ function handlePrivateMessage(
   client: ClientHandler,
   packet: PrivateMessagePacket
 ): void {
-  console.log(`[priv] ${client.username} → ${packet.to}: ${packet.text}`);
   const target: ClientHandler | undefined = clients.get(packet.to);
   if (target === undefined || !target.joined) {
     sendError(client, `El usuario "${packet.to}" no existe o no está conectado.`);
