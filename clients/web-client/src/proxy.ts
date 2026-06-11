@@ -43,9 +43,12 @@ function handleConnection(ws: WebSocket): void {
   });
 
   // TCP -> WebSocket
+  // Se convierte a string UTF-8 para que ws envíe un frame de texto,
+  // no binario. El browser recibe Blob si el frame es binario y
+  // String(Blob) = "[object Blob]", rompiendo el parser JSON.
   tcp.on("data", (chunk: Buffer): void => {
     if (ws.readyState === WebSocket.OPEN) {
-      ws.send(chunk);
+      ws.send(chunk.toString("utf8"));
     }
   });
 
