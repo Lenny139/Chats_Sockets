@@ -1,0 +1,22 @@
+{
+  "name": "chat-sockets-web-client",
+  "version": "1.0.0",
+  "description": "Cliente web de chat con sockets en TypeScript compilado para el browser",
+  "scripts": {
+    "dev:proxy": "ts-node -P tsconfig.proxy.json src/proxy.ts",
+    "build": "tsc",
+    "build:proxy": "tsc -p tsconfig.proxy.json",
+    "build:all": "tsc && tsc -p tsconfig.proxy.json",
+    "start": "node dist/proxy.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/ws": "^8.5.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.0"
+  }
+}
